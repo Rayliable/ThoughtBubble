@@ -2,23 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class livesScript : MonoBehaviour
 {
-    public int lifeCount = 3;
+    public int strikeCount = 0;
 
     [SerializeField]
-    private TMP_Text lifeText;
+    private TMP_Text strikeText;
 
     // Start is called before the first frame update
     void Start()
     {
-        lifeText.text = "Lives = " + lifeCount;
+        strikeText.text = "Strikes = " + strikeCount;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void addStrike()
+    {
+        strikeCount++;
+        Debug.Log("Added strike. Count: " +strikeCount);
     }
 }
