@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class livesScript : MonoBehaviour
+public class strikeScript : MonoBehaviour
 {
     public int strikeCount = 0;
 
