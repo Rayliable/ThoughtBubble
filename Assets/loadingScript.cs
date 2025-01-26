@@ -54,7 +54,7 @@ public class loadingScript : MonoBehaviour
 
             //this caused an infinite loop when lastDream was anything other than 0!! This caused unity to look like it crashed. Commented it out as not to cause issues. - Z
             /*
-            while (newDream == lastDream && newDream == 0) //Generate until it isn't the same as last dream
+            while (newDream == lastDream || newDream == 0) //Generate until it isn't the same as last dream
             {
                 newDream = Random.Range(1, dreamCount + 1); //double check docs for this one, doc
             }
