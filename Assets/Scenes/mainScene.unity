@@ -675,10 +675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901c41c645a2521438ce9a77a2a1e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dreamCount: 5
+  dreamCount: 2
   loadTime: 5
   lastDream: 0
-  anim: {fileID: 139657382669627216}
 --- !u!114 &2073479409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,11 +838,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7844412f588591648a7d8cb927276c61, type: 3}
---- !u!95 &139657382669627216 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5517636500838241319, guid: 7844412f588591648a7d8cb927276c61, type: 3}
-  m_PrefabInstance: {fileID: 139657382669627215}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,8 +31,6 @@ public class loadingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        Cursor.SetCursor(null, new Vector2(0, 0), CursorMode.ForceSoftware);
         //anim = GameObject.Find("jump_00").GetComponent<Animator>();
         // unload last scene but store its id or name
         GameObject mngr = GameObject.Find("manager");
@@ -61,7 +58,7 @@ public class loadingScript : MonoBehaviour
 
             //this caused an infinite loop when lastDream was anything other than 0!! This caused unity to look like it crashed. Commented it out as not to cause issues. - Z
             
-            while (newDream == lastDream || newDream <= 2) //Generate until it isn't the same as last dream, game over, main menu
+            while (newDream == lastDream || newDream == 0) //Generate until it isn't the same as last dream
             {
                 newDream = Random.Range(1, dreamCount + 1); //double check docs for this one, doc
             }

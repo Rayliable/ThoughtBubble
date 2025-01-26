@@ -34,14 +34,11 @@ public class script_Quiz : MonoBehaviour
         if (Q1Correct && Q2Correct)
         {
             win= true;
-            GameObject.Find("QuizManager").GetComponent<dreamScript>().gameWin = true;
-
+            
         }
         else if (Q1Selected && Q2Selected && (Q1Correct == false || Q2Correct == false)) 
         {
             lose= true;
-
-            GameObject.Find("QuizManager").GetComponent<dreamScript>().gameFail = true;
         }
 
     }
