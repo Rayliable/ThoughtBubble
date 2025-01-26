@@ -24,6 +24,7 @@ public class SpawnAndCountAds : MonoBehaviour
         adSpawnCount = Random.Range(8, 12);
         for (int i = 0; i < adSpawnCount; i++)
         {
+            StartCoroutine(WaittoSpawn());
             adVaration = Random.Range(0, 7);
             switch (adVaration)
             {
@@ -63,10 +64,16 @@ public class SpawnAndCountAds : MonoBehaviour
         }
     }
 
+    IEnumerator WaittoSpawn()
+    {
+        Debug.Log("waiting");
+        yield return new WaitForSeconds(10);
+        Debug.Log("waited");
+    }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(adClosedCount);
+        //Debug.Log(adClosedCount);
         if (adClosedCount >= adSpawnCount)
         {
             endMinigame();
