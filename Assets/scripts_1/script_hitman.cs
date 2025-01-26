@@ -94,6 +94,10 @@ public class script_hitman : MonoBehaviour
                 Destroy(targetTo);
                 bullet.enabled = false;
 
+
+                GameObject.Find("manager").GetComponent<dreamScript>().gameWin = true;
+
+
                 // WIN  SCREEN
                 //TIMER FOR 3 SECONDS UNTIL BACK TO TRANSITION
             }
@@ -104,7 +108,9 @@ public class script_hitman : MonoBehaviour
                 remIdle.enabled = false;
 
                 bullet.enabled = false;
-               
+
+                GameObject.Find("manager").GetComponent<dreamScript>().gameFail = true;
+
 
                 // LOSE SCREEN
                 //TIMER FOR 3 SECONDS UNTIL BACK TO TRANSITION

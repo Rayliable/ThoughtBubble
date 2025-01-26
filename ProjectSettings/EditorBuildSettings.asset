@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/mainScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/testScene.unity
     guid: 373887c89f703f340aa7c5a25db6cf28
   - enabled: 1
     path: Assets/Scenes/gameOver.unity
     guid: ef4abac6305b3344eb2216bfc7dc25fe
+  - enabled: 1
+    path: Assets/Scenes/menu_v1.unity
+    guid: 4fdc081906d23104ca29ba8b859ba63e
   - enabled: 1
     path: Assets/Scenes/game_urchin.unity
     guid: 2354d7547264a534fa7ec88314dc8ebb

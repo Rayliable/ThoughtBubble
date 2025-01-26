@@ -4,6 +4,7 @@ using System.ComponentModel;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class loadingScript : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class loadingScript : MonoBehaviour
     [SerializeField] private float loadTime = 3.0f;
     public int lastDream = 0;
     [SerializeField]  private Animator anim;
+    [SerializeField] private Sprite[] _crossSprites;
+    [SerializeField] private Image _crossImg;
 
     // Start is called before the first frame update
     void Start()
@@ -39,8 +42,9 @@ public class loadingScript : MonoBehaviour
 
         //Get strike count from game manager script
         int currStrikes = gameManager.strikes;//mngr.GetComponent<strikeScript>().strikeCount;
+        _crossImg.sprite = _crossSprites[currStrikes];
 
-        Debug.Log("Your last dream was #" + lastDream);//+ " (" + SceneManager.GetSceneByBuildIndex(lastDream).name + "), you have " + currStrikes + " strikes.");
+        Debug.Log("Your last dream was #" + lastDream );// " (" + SceneManager.GetSceneByBuildIndex(lastDream).name + "), you have " + currStrikes + " strikes.");
 
         //Check lives
         if (currStrikes >= 3)
@@ -58,7 +62,7 @@ public class loadingScript : MonoBehaviour
 
             //this caused an infinite loop when lastDream was anything other than 0!! This caused unity to look like it crashed. Commented it out as not to cause issues. - Z
             
-            while (newDream == lastDream || newDream == 0) //Generate until it isn't the same as last dream
+            while (newDream == lastDream || newDream <=2 ) //Generate until it isn't the same as last dream
             {
                 newDream = Random.Range(1, dreamCount + 1); //double check docs for this one, doc
             }
