@@ -15,10 +15,8 @@ public class script_urchin : MonoBehaviour
     public SpriteRenderer urchLose;
     public SpriteRenderer urchWin;
 
-    [SerializeField] dreamScript Dream;
-
     public int poppedBub = 0;
-    int targetBub = 16;
+    int targetBub = 40;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +65,8 @@ public class script_urchin : MonoBehaviour
             //WINNNEERRR
             urchWin.enabled = true;
             urchIdle.enabled = false;
-            Dream.gameWin = true;
+            //Time.timeScale = 0;
+            GameObject.Find("manager").GetComponent<dreamScript>().gameWin = true;
         }
 
     }
@@ -82,7 +81,9 @@ public class script_urchin : MonoBehaviour
             urchIdle.enabled = false;
              //LOSE
             print("testLOSER");
-            Dream.gameFail = true;
+
+            //Time.timeScale = 0;
+            GameObject.Find("manager").GetComponent<dreamScript>().gameFail = true;
         }
 
 

@@ -16,9 +16,6 @@ public class script_hitman : MonoBehaviour
     public SpriteRenderer remLose;
     public SpriteRenderer remWin;
     public SpriteRenderer bullet;
-
-    [SerializeField] dreamScript Dream;
-
     void Start()
     {
         
@@ -84,11 +81,12 @@ public class script_hitman : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
             if (hit.collider != null && hit.collider.gameObject.tag == "targetShoot" && remLose.enabled == false) {
+
 
                 remWin.enabled = true;
                 remIdle.enabled = false;
@@ -96,9 +94,12 @@ public class script_hitman : MonoBehaviour
                 Destroy(targetTo);
                 bullet.enabled = false;
 
+
+                GameObject.Find("manager").GetComponent<dreamScript>().gameWin = true;
+
+
                 // WIN  SCREEN
                 //TIMER FOR 3 SECONDS UNTIL BACK TO TRANSITION
-                StartCoroutine(endMinigame());
             }
             else if (remWin.enabled == false)
             {
@@ -107,7 +108,8 @@ public class script_hitman : MonoBehaviour
                 remIdle.enabled = false;
 
                 bullet.enabled = false;
-                StartCoroutine(failMinigame());
+
+                GameObject.Find("manager").GetComponent<dreamScript>().gameFail = true;
 
 
                 // LOSE SCREEN
@@ -117,18 +119,5 @@ public class script_hitman : MonoBehaviour
             }
 
         }
-    }
-    IEnumerator endMinigame()
-    {
-        yield return new WaitForSeconds(3);
-        Dream.gameWin = true;
-        Debug.Log("GAME ENDED!");
-    }
-
-    IEnumerator failMinigame()
-    {
-        yield return new WaitForSeconds(3);
-        Dream.gameFail = true;
-        Debug.Log("GAME ENDED!");
     }
 }

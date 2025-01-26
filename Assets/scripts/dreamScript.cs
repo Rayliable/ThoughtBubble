@@ -39,7 +39,7 @@ public class dreamScript : MonoBehaviour
             dreamTimer -= Time.deltaTime;
             
         }
-        Debug.Log("dream timer: " + dreamTimer);
+        //Debug.Log("dream timer: " + dreamTimer);
         if(dreamTimer < 0.0f || gameFail)
         {
             //End the dream as a failure!
