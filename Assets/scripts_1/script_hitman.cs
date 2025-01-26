@@ -19,7 +19,7 @@ public class script_hitman : MonoBehaviour
     void Start()
     {
         
-        wantedRand = (Random.Range(1, 5));
+        wantedRand = (Random.Range(1, 6));
         
         switch (wantedRand)
         {
@@ -85,7 +85,9 @@ public class script_hitman : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-            if(hit.collider != null && hit.collider.gameObject.tag == "targetShoot") {
+            if (hit.collider != null && hit.collider.gameObject.tag == "targetShoot" && remLose.enabled == false) {
+
+
                 remWin.enabled = true;
                 remIdle.enabled = false;
 
@@ -95,13 +97,14 @@ public class script_hitman : MonoBehaviour
                 // WIN  SCREEN
                 //TIMER FOR 3 SECONDS UNTIL BACK TO TRANSITION
             }
-            else
+            else if (remWin.enabled == false)
             {
                 //LOSE!!!
                 remLose.enabled = true;
                 remIdle.enabled = false;
 
                 bullet.enabled = false;
+               
 
                 // LOSE SCREEN
                 //TIMER FOR 3 SECONDS UNTIL BACK TO TRANSITION
