@@ -13,6 +13,7 @@ public class captcha : MonoBehaviour
 
     public GameObject select;
 
+    [SerializeField] dreamScript Dream;
 
     public TextMeshProUGUI inputField;
     public Image capLose;
@@ -120,7 +121,12 @@ public class captcha : MonoBehaviour
             cursor.position = keyGrid[currentX, currentY].position;
         }
     }
-
+    IEnumerator endMinigame()
+    {
+        yield return new WaitForSeconds(1);
+        Dream.gameWin = true;
+        Debug.Log("GAME ENDED!");
+    }
     void SelectKey()
     {
         
@@ -134,8 +140,13 @@ public class captcha : MonoBehaviour
                 if (typeInput == answer)
                 {
                     print("WINNER");
+
+                    winning = true;
+
                     capWin.enabled = true;
-                    
+
+                    StartCoroutine(endMinigame());
+
                 }
             }
             else if (keyLetter == "-")
