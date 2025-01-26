@@ -16,41 +16,19 @@ public class dreamScript : MonoBehaviour
     private void Start()
     {
         timerIsRunning = true;
-        dreamTimer = 10.0f;
+        //dreamTimer = 15.0f;
         //op = SceneManager.LoadSceneAsync(0);
         //op.allowSceneActivation = false;
         //Debug.Log("timer start");
         //StartCoroutine(UnloadAsyncScene());
 
         GameObject mngr = GameObject.Find("manager");
-        gameManager.Score = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log("Set LL to " + gameManager.Score);
+        gameManager.dreamNum = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Set LL to " + gameManager.dreamNum);
 
     }
 
-    IEnumerator UnloadAsyncScene()
-    {
-        // Func modified from docs https://docs.unity3d.com/6000.0/Documentation/ScriptReference/SceneManagement.SceneManager.LoadSceneAsync.html
-        
-        UnityEngine.AsyncOperation op = SceneManager.UnloadSceneAsync(0);
-        //op.allowSceneActivation = false;
 
-        // Wait until the asynchronous scene fully loads
-        while (op.progress < 0.9f)
-        {
-            //Debug.Log("Loading progress: " + (op.progress * 100) + "%");
-            //loadTime -= Time.deltaTime;
-            //TODO instructions / game name displayed here
-            yield return null;
-
-        }
-
-        if (op.progress >= 0.9f)
-        { //just to be safe lol
-            Debug.Log("main unloaded.");
-        }
-
-    }
 
     // Update is called once per frame
     private void Update()
@@ -66,11 +44,7 @@ public class dreamScript : MonoBehaviour
         {
             //End the dream as a failure!
             Debug.Log("Dream failed!");
-            /*while (op.progress < 0.9f)
-            {
-                Debug.Log("Main scene still not loaded - please wait");
-            }*/
-            //op.allowSceneActivation = true;
+            gameManager.strikes += 1;
             SceneManager.LoadScene(0);
         }
         else if (gameWin)
@@ -78,11 +52,7 @@ public class dreamScript : MonoBehaviour
             //End the dream as a success!
             //SceneManager.LoadScene(0);
             Debug.Log("Dream won!");
-            /*while (op.progress < 0.9f)
-            {
-                Debug.Log("Main scene still not loaded - please wait");
-            }*/
-            //op.allowSceneActivation = true;
+            SceneManager.LoadScene(0);
         }
 
     }

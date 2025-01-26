@@ -20,19 +20,15 @@ using UnityEngine;
 
 public class gameManager
 {
-    public static int Score =4;
-    public static int Lives =0;
+    public static int dreamNum =-1;
+    public static int strikes =0;
     // TODO: go nuts if you want to add more stuff like health and wave and coins, etc.!
 
     // i dont know if these functions need to be static so i removed that - Z
     public void InitGame()
     {
-        Score = 0;
-        Lives = 4;
+        dreamNum = -1;
+        strikes = 0;
     }
 
-    public void AddScore(int points)
-    {
-        Score += points;
-    }
 }
