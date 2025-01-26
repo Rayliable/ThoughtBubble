@@ -11,4 +11,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/testScene.unity
     guid: 373887c89f703f340aa7c5a25db6cf28
+  - enabled: 1
+    path: Assets/Scenes/gameOver.unity
+    guid: ef4abac6305b3344eb2216bfc7dc25fe
+  - enabled: 1
+    path: Assets/Scenes/game_urchin.unity
+    guid: 2354d7547264a534fa7ec88314dc8ebb
+  - enabled: 1
+    path: Assets/Scenes/game_hitman.unity
+    guid: 7445cf54a590926438deaf16ef6bbfd1
+  - enabled: 1
+    path: Assets/Scenes/AdBlockGame.unity
+    guid: abdc8c722e3000540a740ade578319c7
+  - enabled: 1
+    path: Assets/Scenes/game_captcha.unity
+    guid: b26947133b71bd047b2b81873641447e
   m_configObjects: {}
