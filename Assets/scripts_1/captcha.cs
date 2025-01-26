@@ -37,7 +37,7 @@ public class captcha : MonoBehaviour
     bool winning = false;
     void Start()
     {
-
+        print("Starttt");
         keyGrid = new Transform[10, 3];
         firstKeyLetterMap = new string[3, 10]{
             { "q", "w", "e", "r", "t", "y", "u", "i", "o", "p" }, 
