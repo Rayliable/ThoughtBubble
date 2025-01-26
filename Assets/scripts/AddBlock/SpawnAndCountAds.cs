@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SpawnAndCountAds : MonoBehaviour
@@ -27,36 +28,36 @@ public class SpawnAndCountAds : MonoBehaviour
             switch (adVaration)
             {
                 case 0:
-                    SpawnPos = new Vector3(Random.Range(0, 12), Random.Range(0, 12), 0f);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
                     adVariation1 = Instantiate(adVariation1, SpawnPos, Quaternion.identity);
                     break;
                 case 1:
-                    SpawnPos = new Vector3(Random.Range(0, 12), Random.Range(0, 12), 0f);
-                    adVariation2 = Instantiate(adVariation1, SpawnPos, Quaternion.identity);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    adVariation2 = Instantiate(adVariation2, SpawnPos, Quaternion.identity);
                     break;
                 case 2:
-                    SpawnPos = new Vector3(Random.Range(0, 12), Random.Range(0, 12), 0f);
-                    adVariation3 = Instantiate(adVariation1, SpawnPos, Quaternion.identity);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    adVariation3 = Instantiate(adVariation3, SpawnPos, Quaternion.identity);
                     break;
                 case 3:
-                    SpawnPos = new Vector3(Random.Range(0, 12), Random.Range(0, 12), 0f);
-                    adVariation4 = Instantiate(adVariation1, SpawnPos, Quaternion.identity);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    adVariation4 = Instantiate(adVariation4, SpawnPos, Quaternion.identity);
                     break;
                 case 4:
-                    SpawnPos = new Vector3(Random.Range(0, 12), Random.Range(0, 12), 0f);
-                    adVariation5 = Instantiate(adVariation1, SpawnPos, Quaternion.identity);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    adVariation5 = Instantiate(adVariation5, SpawnPos, Quaternion.identity);
                     break;
                 case 5:
-                    SpawnPos = new Vector3(Random.Range(0, 12), Random.Range(0, 12), 0f);
-                    adVariation6 = Instantiate(adVariation1, SpawnPos, Quaternion.identity);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    adVariation6 = Instantiate(adVariation6, SpawnPos, Quaternion.identity);
                     break;
                 case 6:
-                    SpawnPos = new Vector3(Random.Range(0, 12), Random.Range(0, 12), 0f);
-                    adVariation7 = Instantiate(adVariation1, SpawnPos, Quaternion.identity);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    adVariation7 = Instantiate(adVariation7, SpawnPos, Quaternion.identity);
                     break;
                 case 7:
-                    SpawnPos = new Vector3(Random.Range(0, 12), Random.Range(0, 12), 0f);
-                    adVariation8 = Instantiate(adVariation1, SpawnPos, Quaternion.identity);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    adVariation8 = Instantiate(adVariation8, SpawnPos, Quaternion.identity);
                     break;
             }
         }
@@ -65,13 +66,10 @@ public class SpawnAndCountAds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(adClosedCount);
         if (adClosedCount >= adSpawnCount)
         {
             endMinigame();
-        }
-        else
-        {
-            Debug.Log("AD CLOSED!");
         }
     }
 
