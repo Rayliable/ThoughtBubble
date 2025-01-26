@@ -8,9 +8,9 @@ public class dreamScript : MonoBehaviour
     //This general script is used for 
 
     private bool timerIsRunning = true;
-    [SerializeField] private bool gameFail = false;
-    [SerializeField] private bool gameWin = false;
-    [SerializeField] private float dreamTimer;
+    [SerializeField] public bool gameFail = false;
+    [SerializeField] public bool gameWin = false;
+    [SerializeField] public float dreamTimer;
     
 
     private void Start()
