@@ -6,7 +6,7 @@ public class urchin_bubbleSpawn : MonoBehaviour
 {
     public GameObject bubblePrefab;
     public Transform spawner;
-    int maxBubble = 10;
+    int maxBubble = 4;
 
     private int numBubble = 0;
 
@@ -22,7 +22,7 @@ public class urchin_bubbleSpawn : MonoBehaviour
     {
        
         while(numBubble < maxBubble) {
-            float waitTime = Random.Range(1f, 3f);
+            float waitTime = Random.Range(1f, 2.5f);
             yield return new WaitForSeconds(waitTime);
             GameObject bubble = Instantiate(bubblePrefab, spawner.position, Quaternion.identity);
 
