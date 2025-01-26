@@ -33,7 +33,7 @@ public class captcha : MonoBehaviour
     private int currentX = 0;
     private int currentY = 0;
     string typeInput = "";
-    // Start is called before the first frame update
+    bool winning = false;
     void Start()
     {
 
@@ -135,7 +135,12 @@ public class captcha : MonoBehaviour
                 {
                     print("WINNER");
 
+
+
+
+                    winning = true;
                     capWin.enabled = true;
+                    
                 }
             }
             else if (keyLetter == "-")
@@ -196,8 +201,6 @@ public class captcha : MonoBehaviour
         }
 
         //If time RUNS out you lose
-
-
 
 
     }
