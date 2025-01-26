@@ -10,7 +10,7 @@ public class dreamScript : MonoBehaviour
     private bool timerIsRunning = true;
     [SerializeField] private bool gameFail = false;
     [SerializeField] private bool gameWin = false;
-    [SerializeField] private float dreamTimer;
+    [SerializeField] private float dreamTimer = 15.0f;
     
 
     private void Start()
