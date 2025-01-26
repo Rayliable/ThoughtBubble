@@ -10,8 +10,10 @@ public class MusicManager : MonoBehaviour
     [SerializeField] AudioSource Tech;
     [SerializeField] AudioSource Spy;
     [SerializeField] AudioSource Eppy;
-    
-    public enum Music {None, Menu, Test, Water, Tech, Spy, Eppy};
+    [SerializeField] AudioSource Transition;
+    [SerializeField] AudioSource Loss;
+
+    public enum Music {None, Menu, Test, Water, Tech, Spy, Eppy, Transition, Loss};
     private Music playing = Music.None;
     // Start is called before the first frame update
     void Awake()
@@ -68,7 +70,22 @@ public class MusicManager : MonoBehaviour
                 if (playing != Music.Eppy)
                 {
                     Eppy.Play();
-                    playing = Music.Menu;
+                    playing = Music.Eppy;
+                }
+                break;
+
+            case Music.Transition:
+                if (playing != Music.Transition)
+                {
+                    Transition.Play();
+                    playing = Music.Transition;
+                }
+                break;
+            case Music.Loss:
+                if (playing != Music.Loss)
+                {
+                    Loss.Play();
+                    playing = Music.Loss;
                 }
                 break;
 
