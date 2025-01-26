@@ -17,7 +17,8 @@ public class loadingScript : MonoBehaviour
     //  Begin async loading. Start load timer
     //While loading, display name / instructions
     //  Once loaded && min amt of load time has passed, 
-    //Transition
+    //  Transition
+    //TODO - add alternate scene transition for lose condition
 
     
     private bool isLoading = false;
