@@ -12,6 +12,7 @@ public class loadingScript : MonoBehaviour
 
     //Store ref of prev scene
     //  Check lives
+    //Game over function
     //  Pick scene at random (verify not same as previous scene)
     //  Begin async loading. Start load timer
     //While loading, display name / instructions
@@ -23,19 +24,19 @@ public class loadingScript : MonoBehaviour
 
     [SerializeField] private int dreamCount;
     [SerializeField] private float loadTime = 10.0f;
-    private int lastDream = 0;
+    public int lastDream = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         //TODO unload last scene but store its id or name
         GameObject mngr = GameObject.Find("manager");
-        lastDream = GM.lastLevel; //mngr.GetComponent<saveLevel>().levelNum;  //saveLevel.levelNum;
+        lastDream = gameManager.Score; //GM.lastLevel; //mngr.GetComponent<saveLevel>().levelNum;  //saveLevel.levelNum;
 
         //Get strike count from manager script
         int currStrikes = mngr.GetComponent<strikeScript>().strikeCount;
 
-        Debug.Log("Your last dream was #" + lastDream + " (" + SceneManager.GetSceneByBuildIndex(lastDream).name + "), you have " + currStrikes + " strikes.");
+        Debug.Log("Your last dream was #" + lastDream);//+ " (" + SceneManager.GetSceneByBuildIndex(lastDream).name + "), you have " + currStrikes + " strikes.");
 
         //Check lives
         if (currStrikes >= 3)
@@ -96,9 +97,9 @@ public class loadingScript : MonoBehaviour
 
         if(op.progress >= 0.9f && loadTime <= 0.0f) { //just to be safe lol
             //Scene switch TODO for transition
-            Debug.Log("Switching to scene #" + sceneIdx);
+            Debug.Log("Switching to scene #" + sceneIdx);            
             op.allowSceneActivation = true;
-            //SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneIdx));
         }
 
     }

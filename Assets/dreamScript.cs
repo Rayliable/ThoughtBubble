@@ -10,19 +10,22 @@ public class dreamScript : MonoBehaviour
     private bool timerIsRunning = true;
     [SerializeField] private bool gameFail = false;
     [SerializeField] private bool gameWin = false;
-    [SerializeField] private float dreamTimer = 20.0f;
+    [SerializeField] private float dreamTimer;
     
 
     private void Start()
     {
         timerIsRunning = true;
-        dreamTimer = 20.0f;
+        dreamTimer = 10.0f;
         //op = SceneManager.LoadSceneAsync(0);
         //op.allowSceneActivation = false;
         //Debug.Log("timer start");
         //StartCoroutine(UnloadAsyncScene());
-        GM.lastLevel = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log("Set LL to " + GM.lastLevel);
+
+        GameObject mngr = GameObject.Find("manager");
+        gameManager.Score = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Set LL to " + gameManager.Score);
+
     }
 
     IEnumerator UnloadAsyncScene()
@@ -56,13 +59,12 @@ public class dreamScript : MonoBehaviour
         if (timerIsRunning)
         {
             dreamTimer -= Time.deltaTime;
-            Debug.Log("dream timer: " + dreamTimer);
+            
         }
-
+        Debug.Log("dream timer: " + dreamTimer);
         if(dreamTimer < 0.0f || gameFail)
         {
             //End the dream as a failure!
-            //SceneManager.LoadScene(0); //TODO find a way to do this
             Debug.Log("Dream failed!");
             /*while (op.progress < 0.9f)
             {
@@ -70,7 +72,6 @@ public class dreamScript : MonoBehaviour
             }*/
             //op.allowSceneActivation = true;
             SceneManager.LoadScene(0);
-            return;
         }
         else if (gameWin)
         {
