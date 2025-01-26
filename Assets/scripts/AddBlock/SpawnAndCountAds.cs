@@ -15,9 +15,12 @@ public class SpawnAndCountAds : MonoBehaviour
     public GameObject adVariation8;
     public int adSpawnCount = 0;
     static private int adClosedCount = 0;
+    [SerializeField] dreamScript Dream;
+    public TextMeshProUGUI UIText;
     // Start is called before the first frame update
     void Start()
     {
+        UIText.text = "CLOSE THE ADS!";
         StartCoroutine(SpawnAds());
     }
 
@@ -77,7 +80,7 @@ public class SpawnAndCountAds : MonoBehaviour
         //Debug.Log(adClosedCount);
         if (adClosedCount >= adSpawnCount)
         {
-            endMinigame();
+            StartCoroutine(endMinigame());
         }
     }
     public void adClosedAdd()
@@ -85,8 +88,11 @@ public class SpawnAndCountAds : MonoBehaviour
         adClosedCount++;
         Debug.Log(adClosedCount);
     }
-    void endMinigame()
+    IEnumerator endMinigame()
     {
+        UIText.text = "YOU DID IT!!";
+        yield return new WaitForSeconds(2);
+        Dream.gameWin = true;
         Debug.Log("GAME ENDED!");
     }
 }
