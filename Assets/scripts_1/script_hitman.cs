@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
-using UnityEngine.tvOS;
 
 public class script_hitman : MonoBehaviour
 {

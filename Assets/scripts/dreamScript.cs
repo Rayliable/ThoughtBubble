@@ -45,14 +45,16 @@ public class dreamScript : MonoBehaviour
             //End the dream as a failure!
             Debug.Log("Dream failed!");
             gameManager.strikes += 1;
-            SceneManager.LoadScene(0);
+
+            SceneManager.LoadScene("mainScene");
         }
         else if (gameWin)
         {
             //End the dream as a success!
             //SceneManager.LoadScene(0);
             Debug.Log("Dream won!");
-            SceneManager.LoadScene(0);
+
+            SceneManager.LoadScene("mainScene");
         }
 
     }
