@@ -324,26 +324,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 584306551019856033, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1834606659630326999, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3589680688690034828, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5248217392417188925, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7741910967320885185, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8665690263323714834, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -387,18 +367,6 @@ PrefabInstance:
     - target: {fileID: 8804483101559335489, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
       propertyPath: m_Name
       value: GameMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 8804483101559335489, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9082053423309734427, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9082688877220578737, guid: 5b5cbca4cd3b4f2478bd82add6965048, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
