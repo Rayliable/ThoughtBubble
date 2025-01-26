@@ -11,6 +11,13 @@ public class script_urchin : MonoBehaviour
     public GameObject armLeft;
     public GameObject armRight;
 
+    public SpriteRenderer urchIdle;
+    public SpriteRenderer urchLose;
+    public SpriteRenderer urchWin;
+
+    public int poppedBub = 0;
+    int targetBub = 40;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,5 +57,39 @@ public class script_urchin : MonoBehaviour
             armLeft.SetActive(false);
             armRight.SetActive(true);
         }
+
+
+
+        if(poppedBub >= targetBub)
+        {
+            //WINNNEERRR
+            urchWin.enabled = true;
+            urchIdle.enabled = false;
+            Time.timeScale = 0;
+        }
+
+    }
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bubblePop")
+        {
+            urchLose.enabled = true;
+            urchIdle.enabled = false;
+             //LOSE
+            print("testLOSER");
+            Time.timeScale = 0;
+        }
+
+
+        urchin_bubbleSpawn spawner1 = GameObject.Find("spawnerUp").GetComponent<urchin_bubbleSpawn>();
+        urchin_bubbleSpawn spawner2 = GameObject.Find("spawnerDown").GetComponent<urchin_bubbleSpawn>();
+        urchin_bubbleSpawn spawner3 = GameObject.Find("spawnerRight").GetComponent<urchin_bubbleSpawn>();
+        urchin_bubbleSpawn spawner4 = GameObject.Find("spawnerLeft").GetComponent<urchin_bubbleSpawn>();
+
+    
+
     }
 }
