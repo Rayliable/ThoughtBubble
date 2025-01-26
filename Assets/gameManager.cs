@@ -18,19 +18,20 @@ using UnityEngine;
 // To persistently store high scores, see https://pastebin.com/VmngEK05
 //
 
-public static class gameManager
+public class gameManager
 {
     public static int Score =4;
-    public static int Lives;
+    public static int Lives =0;
     // TODO: go nuts if you want to add more stuff like health and wave and coins, etc.!
 
-    public static void InitGame()
+    // i dont know if these functions need to be static so i removed that - Z
+    public void InitGame()
     {
         Score = 0;
         Lives = 4;
     }
 
-    public static void AddScore(int points)
+    public void AddScore(int points)
     {
         Score += points;
     }

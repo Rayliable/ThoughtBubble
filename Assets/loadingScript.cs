@@ -22,7 +22,7 @@ public class loadingScript : MonoBehaviour
     
     private bool isLoading = false;
 
-    [SerializeField] private int dreamCount;
+    [SerializeField] private int dreamCount = 0;
     [SerializeField] private float loadTime = 10.0f;
     public int lastDream = 0;
 
@@ -31,8 +31,9 @@ public class loadingScript : MonoBehaviour
     {
         //TODO unload last scene but store its id or name
         GameObject mngr = GameObject.Find("manager");
+        
         lastDream = gameManager.Score; //GM.lastLevel; //mngr.GetComponent<saveLevel>().levelNum;  //saveLevel.levelNum;
-
+        
         //Get strike count from manager script
         int currStrikes = mngr.GetComponent<strikeScript>().strikeCount;
 
@@ -48,11 +49,16 @@ public class loadingScript : MonoBehaviour
         else
         {
             //pick scene to load
-            int newDream = 0;
-            while (newDream == lastDream || newDream == 0) //Generate until it isn't the same as last dream
+            //changed newDream to 1 so it will switch scenes in testing - Z
+            int newDream = 1;
+
+            //this caused an infinite loop when lastDream was anything other than 0!! This caused unity to look like it crashed. Commented it out as not to cause issues. - Z
+            /*
+            while (newDream == lastDream && newDream == 0) //Generate until it isn't the same as last dream
             {
                 newDream = Random.Range(1, dreamCount + 1); //double check docs for this one, doc
             }
+            */
 
             //begin async loading
             Debug.Log("Beginning async load for dream:" + newDream);
