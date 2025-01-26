@@ -44,6 +44,7 @@ public class loadingScript : MonoBehaviour
         {
             Debug.Log("3 Strikes! You're out.");
             //TODO - game over here
+            SceneManager.LoadScene("gameOver");
             return;
         }
         else
@@ -103,7 +104,8 @@ public class loadingScript : MonoBehaviour
 
         if(op.progress >= 0.9f && loadTime <= 0.0f) { //just to be safe lol
             //Scene switch TODO for transition
-            Debug.Log("Switching to scene #" + sceneIdx);            
+            Debug.Log("Switching to scene #" + sceneIdx);
+            //animation here - jump
             op.allowSceneActivation = true;
             //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneIdx));
         }
