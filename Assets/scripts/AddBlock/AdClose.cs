@@ -22,7 +22,7 @@ public class AdClose : MonoBehaviour
     }
     void CloseAdWindow()
     {
-        AdSpawner.adClosedCount++;
+        AdSpawner.adClosedAdd();
         Debug.Log("CLICKED");
         Destroy(Advert);
         Destroy(X_Button);

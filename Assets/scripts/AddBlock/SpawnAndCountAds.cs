@@ -13,20 +13,25 @@ public class SpawnAndCountAds : MonoBehaviour
     public GameObject adVariation6;
     public GameObject adVariation7;
     public GameObject adVariation8;
-    public int adSpawnCount;
-    public int adClosedCount;
+    public int adSpawnCount = 0;
+    static private int adClosedCount = 0;
     // Start is called before the first frame update
     void Start()
     {
-        int adVaration = 0;
+        StartCoroutine(SpawnAds());
+    }
+
+    IEnumerator SpawnAds()
+    {
+        int adVariation = 0;
         adClosedCount = 0;
         Vector3 SpawnPos = Vector3.zero;
         adSpawnCount = Random.Range(8, 12);
+        Debug.Log("waiting");
         for (int i = 0; i < adSpawnCount; i++)
         {
-            StartCoroutine(WaittoSpawn());
-            adVaration = Random.Range(0, 7);
-            switch (adVaration)
+            adVariation = Random.Range(0, 7);
+            switch (adVariation)
             {
                 case 0:
                     SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
@@ -61,25 +66,25 @@ public class SpawnAndCountAds : MonoBehaviour
                     adVariation8 = Instantiate(adVariation8, SpawnPos, Quaternion.identity);
                     break;
             }
+            yield return new WaitForSeconds(0.1f);
         }
-    }
-
-    IEnumerator WaittoSpawn()
-    {
-        Debug.Log("waiting");
-        yield return new WaitForSeconds(10);
         Debug.Log("waited");
     }
     // Update is called once per frame
     void Update()
     {
+        
         //Debug.Log(adClosedCount);
         if (adClosedCount >= adSpawnCount)
         {
             endMinigame();
         }
     }
-
+    public void adClosedAdd()
+    {
+        adClosedCount++;
+        Debug.Log(adClosedCount);
+    }
     void endMinigame()
     {
         Debug.Log("GAME ENDED!");
