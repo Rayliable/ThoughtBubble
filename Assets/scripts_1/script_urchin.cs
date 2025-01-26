@@ -65,7 +65,8 @@ public class script_urchin : MonoBehaviour
             //WINNNEERRR
             urchWin.enabled = true;
             urchIdle.enabled = false;
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
+            GameObject.Find("manager").GetComponent<dreamScript>().gameWin = true;
         }
 
     }
@@ -80,7 +81,9 @@ public class script_urchin : MonoBehaviour
             urchIdle.enabled = false;
              //LOSE
             print("testLOSER");
-            Time.timeScale = 0;
+
+            //Time.timeScale = 0;
+            GameObject.Find("manager").GetComponent<dreamScript>().gameFail = true;
         }
 
 

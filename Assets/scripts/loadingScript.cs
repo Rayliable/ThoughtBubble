@@ -34,6 +34,8 @@ public class loadingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Cursor.SetCursor(null, new Vector2(0,0), CursorMode.ForceSoftware);
         //anim = GameObject.Find("jump_00").GetComponent<Animator>();
         // unload last scene but store its id or name
         GameObject mngr = GameObject.Find("manager");
@@ -64,7 +66,7 @@ public class loadingScript : MonoBehaviour
             
             while (newDream == lastDream || newDream <=2 ) //Generate until it isn't the same as last dream
             {
-                newDream = Random.Range(1, dreamCount + 1); //double check docs for this one, doc
+                newDream = Random.Range(1, dreamCount +2); //double check docs for this one, doc
             }
             
 
@@ -82,10 +84,6 @@ public class loadingScript : MonoBehaviour
             loadTime -= Time.deltaTime;
             //Debug.Log("loading. timer: " + loadTime);
         }
-        if (loadTime < 3.10f)
-        {
-            anim.SetTrigger("OnUnderOne");
-        }
     }
 
     IEnumerator LoadAsyncScene(int sceneIdx)
@@ -102,7 +100,7 @@ public class loadingScript : MonoBehaviour
         isLoading = true;
 
         // Wait until the asynchronous scene fully loads
-        while (op.progress < 0.9f || loadTime > 0.0f)
+        while (op.progress < 0.9f)// || loadTime > 0.0f)
         {
             //Debug.Log("Loading progress: " + (op.progress * 100) + "%");
             //loadTime -= Time.deltaTime;
@@ -114,10 +112,13 @@ public class loadingScript : MonoBehaviour
         isLoading = false;
         Debug.Log("Dream Scene " + SceneManager.GetSceneByBuildIndex(sceneIdx).name + " has been loaded.");
 
-        if(op.progress >= 0.9f && loadTime <= 0.0f) { //just to be safe lol
+        if(op.progress >= 0.9f){// && loadTime <= 0.0f) { //just to be safe lol
             //Scene switch TODO for transition
             Debug.Log("Switching to scene #" + sceneIdx);
             //animation here - jump
+            anim.SetTrigger("OnUnderOne");
+
+            yield return new WaitForSeconds(2);
             op.allowSceneActivation = true;
             //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneIdx));
         }
