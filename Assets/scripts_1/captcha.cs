@@ -142,6 +142,7 @@ public class captcha : MonoBehaviour
                     print("WINNER");
 
                     winning = true;
+
                     capWin.enabled = true;
 
                     StartCoroutine(endMinigame());
@@ -155,7 +156,7 @@ public class captcha : MonoBehaviour
             else
             {
                 typeInput += keyLetter;
-                Debug.Log("Typed String: " + typeInput);
+                Debug.Log("String: " + typeInput);
             }
             
         }
@@ -166,7 +167,7 @@ public class captcha : MonoBehaviour
         if (typeInput.Length > 0)
         {
             typeInput = typeInput.Substring(0, typeInput.Length - 1); 
-            Debug.Log("Typed String after removal: " + typeInput);
+            Debug.Log("string " + typeInput);
         }
     }
     // Update is called once per frame
