@@ -17,9 +17,20 @@ public class SpawnAndCountAds : MonoBehaviour
     static private int adClosedCount = 0;
     [SerializeField] dreamScript Dream;
     public TextMeshProUGUI UIText;
+
+    public SpriteRenderer adLose;
+
+    public SpriteRenderer remIdle;
+    public SpriteRenderer remLose;
+    public SpriteRenderer remWin;
+
     // Start is called before the first frame update
     void Start()
     {
+        remLose.enabled = false;
+        remWin.enabled = false;
+        remIdle.enabled = true;
+        adLose.enabled = false;
         UIText.text = "CLOSE THE ADS!";
         StartCoroutine(SpawnAds());
     }
@@ -37,35 +48,35 @@ public class SpawnAndCountAds : MonoBehaviour
             switch (adVariation)
             {
                 case 0:
-                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 2.5f), 0f);
                     adVariation1 = Instantiate(adVariation1, SpawnPos, Quaternion.identity);
                     break;
                 case 1:
-                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 2.5f), 0f);
                     adVariation2 = Instantiate(adVariation2, SpawnPos, Quaternion.identity);
                     break;
                 case 2:
-                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 2.5f), 0f);
                     adVariation3 = Instantiate(adVariation3, SpawnPos, Quaternion.identity);
                     break;
                 case 3:
-                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 2.5f), 0f);
                     adVariation4 = Instantiate(adVariation4, SpawnPos, Quaternion.identity);
                     break;
                 case 4:
-                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 2.5f), 0f);
                     adVariation5 = Instantiate(adVariation5, SpawnPos, Quaternion.identity);
                     break;
                 case 5:
-                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 2.5f), 0f);
                     adVariation6 = Instantiate(adVariation6, SpawnPos, Quaternion.identity);
                     break;
                 case 6:
-                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 2.5f), 0f);
                     adVariation7 = Instantiate(adVariation7, SpawnPos, Quaternion.identity);
                     break;
                 case 7:
-                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 3), 0f);
+                    SpawnPos = new Vector3(Random.Range(-8, 6), Random.Range(-4, 2.5f), 0f);
                     adVariation8 = Instantiate(adVariation8, SpawnPos, Quaternion.identity);
                     break;
             }
@@ -82,6 +93,10 @@ public class SpawnAndCountAds : MonoBehaviour
         {
             StartCoroutine(endMinigame());
         }
+        if (Dream.dreamTimer <= 0.1f)
+        {
+            StartCoroutine(failMinigame());
+        }
     }
     public void adClosedAdd()
     {
@@ -90,9 +105,23 @@ public class SpawnAndCountAds : MonoBehaviour
     }
     IEnumerator endMinigame()
     {
+        remWin.enabled = true;
+        remIdle.enabled = false;
         UIText.text = "YOU DID IT!!";
+        Dream.timerIsRunning = false;
         yield return new WaitForSeconds(2);
         Dream.gameWin = true;
+        Debug.Log("GAME ENDED!");
+    }
+    IEnumerator failMinigame()
+    {
+        remLose.enabled = true;
+        remIdle.enabled = false;
+        UIText.text = " ";
+        adLose.enabled = true;
+        Dream.timerIsRunning = false;
+        yield return new WaitForSeconds(2);
+        Dream.gameFail = true;
         Debug.Log("GAME ENDED!");
     }
 }

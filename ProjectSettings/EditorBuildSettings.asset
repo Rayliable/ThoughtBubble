@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/game_captcha.unity
     guid: b26947133b71bd047b2b81873641447e
+  - enabled: 1
+    path: Assets/Scenes/game_quiz.unity
+    guid: a2c682ea9e368ee4c8a3766b676e05bc
   m_configObjects: {}

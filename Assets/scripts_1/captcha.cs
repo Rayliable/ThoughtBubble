@@ -123,6 +123,7 @@ public class captcha : MonoBehaviour
     }
     IEnumerator endMinigame()
     {
+        Dream.timerIsRunning = false;
         yield return new WaitForSeconds(1);
         Dream.gameWin = true;
         Debug.Log("GAME ENDED!");
