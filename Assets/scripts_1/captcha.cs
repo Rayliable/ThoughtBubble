@@ -29,12 +29,12 @@ public class captcha : MonoBehaviour
     public string[,] keyLetterMap;
     public Transform cursor;
     public Transform[,] keyGrid;
-    static int gridWidth = 3;
-    static int gridHeight = 10;
+    //static int gridWidth = 3;
+    //static int gridHeight = 10;
     private int currentX = 0;
     private int currentY = 0;
     string typeInput = "";
-    bool winning = false;
+    //bool winning = false;
     void Start()
     {
         print("Starttt");
@@ -142,7 +142,7 @@ public class captcha : MonoBehaviour
                 {
                     print("WINNER");
 
-                    winning = true;
+                    //winning = true;
 
                     capWin.enabled = true;
 

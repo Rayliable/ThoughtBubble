@@ -22,6 +22,6 @@ public class buttonScript : MonoBehaviour
     {
         Debug.Log("retrying game.");
         gameManager.InitGame();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("mainScene");
     }
 }
