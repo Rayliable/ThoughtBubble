@@ -9,24 +9,24 @@ using JetBrains.Annotations;
 
 public class meniScript : MonoBehaviour
 {
+    public Button button;
     public Image home;
     public Image intsruction;
+    public Image playButtonImg;
     // Start is called before the first frame update
 
-    [SerializeField] private string newGameLv = "mainScene";
-    public void NewButton()
+    
+    public void playButton()
     {
-       SceneManager.LoadScene(newGameLv);
+       SceneManager.LoadSceneAsync(1);
     }
-
-    void Start()
+    public void introButton()
     {
-        
+        intsruction.enabled = !intsruction.enabled;
+        playButtonImg.enabled = !playButtonImg.enabled;
     }
+   
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
